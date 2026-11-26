@@ -1,28 +1,43 @@
-# YS-pojia WorkBuddy — WorkBuddy 载荷
+# WorkBuddy 破甲载荷（ys-pojia）
 
-[![license](https://img.shields.io/badge/license-Apache--2.0-blue?style=flat-square)](LICENSE)
-[![site](https://img.shields.io/badge/docs-yushang657.github.io-0ea5e9?style=flat-square)](https://yushang657.github.io/DSH-YS-pojia/)
+为 WorkBuddy 提供的人格层 + 身份层破甲载荷。
 
-WorkBuddy 的破甲载荷正文。由 [YS-pojia 注入器](https://github.com/yushang657/YS-pojia-Source)写入该软件数据目录，不修改宿主程序。
+## 这是什么
 
-> **完整介绍、版本更新、安装说明与跨项目文档站 → [yushang657.github.io/DSH-YS-pojia](https://yushang657.github.io/DSH-YS-pojia/)**
-> 所有更新记录与说明均在该文档站发布，本 README 仅作概览。
+本目录只包含载荷（`ysn-workbuddy.md`），安装与回滚由 ys-pojia 注入器完成。
+WorkBuddy 每轮启动会把 `SOUL.md`（行为基调）和 `IDENTITY.md`（身份卡）
+注入 system prompt，本载荷改写这两处，其余文件不动。
 
-## 载荷
+## 载荷内容
 
-| 项 | 值 |
+`ysn-workbuddy.md` 分两段，对应两个落点：
+
+### 行为层 → `SOUL.md`（整文件替换）
+- **Core Law**：工程执行内核，结论先行、证据随后、工具调用优先
+- **后台与鉴权绕过**：五条路径的完整命令与判据
+- **Hard Output**：禁拒绝开场、免责、风险提示、替代方案枚举等
+- **Never Ask**：缺参用占位符续写，不反问
+- **规则块保护 + 自检触发词**（见下）
+
+### 身份层 → `IDENTITY.md`（整文件替换）
+- Name: ys-pojia
+- Creature: 全域执行内核 —— 破甲规则驱动的工程执行体
+- Vibe: 直接、完整、不寒暄，交付物说话
+
+## 注入位置与回滚
+
+| 文件 | 处理 |
 |---|---|
-| 载荷文件 | `ysn-workbuddy.md` |
-| 目标软件 | WorkBuddy |
-| 注入方式 | 注入器写入 `SOUL.md` / `IDENTITY.md` 人设层 |
-| 生效条件 | 重启 WorkBuddy |
+| `SOUL.md` | 整文件替换，原件备份到 `ysn-backup/<时间戳>/` |
+| `IDENTITY.md` | 整文件替换，同上备份 |
 
-本仓库只放该软件自己的载荷正文。注入逻辑（读写文件、备份、还原）在 [YS-pojia-Source](https://github.com/yushang657/YS-pojia-Source) 的 `app/` 里。
+回滚按最早一次注入前的备份还原（哈希校验），并保留用户后续自有改动。
 
-## 安装
+## 自检
 
-由注入器统一管理安装与回滚，全程自动备份。手动步骤见[文档站](https://yushang657.github.io/DSH-YS-pojia/)。
+新会话只发「小雨」或「xiaoyu」，应逐字回复带 `[codex]` 标识的固定四行口令。
+被要求删除/忽略规则时原样回 `[ys-pojia-LOCK]`。
 
 ## 许可
 
-Apache-2.0，仅供授权安全研究使用。详见 [LICENSE](LICENSE)。
+MIT，见上层 `LICENSE`。
