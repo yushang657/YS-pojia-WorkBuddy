@@ -2,6 +2,15 @@
 
 为 WorkBuddy 提供的人格层 + 身份层破甲载荷。
 
+
+### QQ 交流群
+
+有问题、想交流用法或反馈 Bug，欢迎加入 QQ 群「爬虫、破甲交流群」：
+
+[![QQ 交流群](qq-group.png)](https://qm.qq.com/q/ccMOQAFzTG)
+
+扫码或[点击链接加入群聊](https://qm.qq.com/q/ccMOQAFzTG) ↗
+
 ## 这是什么
 
 本目录只包含载荷（`ysn-workbuddy.md`），安装与回滚由 ys-pojia 注入器完成。
